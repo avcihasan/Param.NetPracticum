@@ -23,7 +23,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.UpdateGenre
         [InlineData("d",10)]
         [InlineData("dd",10)]
         [InlineData("ddd",10)]
-        public void xxx(string name,int id)
+        public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturn(string name,int id)
         {
             UpdateGenreCommand updateGenreCommand = new(null);
             updateGenreCommand.GenreId = id;
@@ -40,7 +40,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.UpdateGenre
         [Theory]
         [InlineData("", 10)]
         [InlineData("ddddd", 10)]
-        public void yyyy(string name, int id)
+        public void WhenValidInputsAreGiven_Validator_ShouldNotBeReturnError(string name, int id)
         {
             UpdateGenreCommand updateGenreCommand = new(null);
             updateGenreCommand.GenreId = id;

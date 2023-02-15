@@ -19,7 +19,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.CreateAuthor
         [InlineData("deneme","")]
         [InlineData("", "deneme")]
         [InlineData("","")]
-        public void xxxx(string name,string surname)
+        public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturnErrors(string name,string surname)
         {
             CreateAuthorCommand createAuthorCommand = new(null,null);
             createAuthorCommand.Author = new() { Birthday = DateTime.Now.AddDays(-50), Name = name, Surname = surname };
@@ -33,7 +33,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.CreateAuthor
 
 
         [Fact]
-        public void WhenDateTimeEqualNowIsGiven_Validator_ShouldBeReturnError()
+        public void WhenValidBirthdayAreGiven_Validator_ShouldBeReturnError()
         {
 
             CreateAuthorCommand createAuthorCommand = new(null, null);

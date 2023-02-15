@@ -26,7 +26,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.CreateGenre
         }
 
         [Fact]
-        public void WhenAlreadyExistBookTitleIsGiven_InvalidOperationException_ShouldBeReturn()
+        public void WhenAlreadyExistGenreNameIsGiven_InvalidOperationException_ShouldBeReturn()
         {
             Genre genre = new() { IsActive = true, Name = "test deneme" };
             _context.Genres.Add(genre);

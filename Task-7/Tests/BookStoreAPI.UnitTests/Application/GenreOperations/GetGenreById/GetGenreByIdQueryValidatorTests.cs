@@ -18,7 +18,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.GetGenreById
         [Theory]
         [InlineData(-10)]
         [InlineData(0)]
-        public void xxxx(int id)
+        public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturn(int id)
         {
             GetGenreByIdQuery getGenreByIdQuery = new(null, null);
             getGenreByIdQuery.GenreId = id;
@@ -32,7 +32,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.GetGenreById
 
 
         [Fact]
-        public void zzzz()
+        public void WhenValidInputsAreGiven_Validator_ShouldNotBeReturnError()
         {
             GetGenreByIdQuery getGenreByIdQuery = new(null, null);
             getGenreByIdQuery.GenreId = 10;

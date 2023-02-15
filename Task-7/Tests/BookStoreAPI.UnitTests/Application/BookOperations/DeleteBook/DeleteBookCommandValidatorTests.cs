@@ -16,7 +16,7 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.DeleteBook
         [Theory]
         [InlineData(0)]
         [InlineData(-1)]
-        public void xxx(int id)
+        public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturn(int id)
         {
             DeleteBookCommand deleteBookCommand = new(null);
             deleteBookCommand.BookId = id;
@@ -28,7 +28,7 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.DeleteBook
         }
 
         [Fact]
-        public void yyy()
+        public void WhenValidInputsAreGiven_Validator_ShouldNotBeReturnError()
         {
             DeleteBookCommand deleteBookCommand = new(null);
             deleteBookCommand.BookId = 1;

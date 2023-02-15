@@ -26,7 +26,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.GetGenreById
         }
 
         [Fact]
-        public void xxx()
+        public void WhenAlreadyNotFoundGenre_InvalidOperationException_ShouldBeReturn()
         {
             GetGenreByIdQuery getGenreByIdQuery = new(_context,_mapper);
             getGenreByIdQuery.GenreId = 0;
@@ -35,7 +35,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.GetGenreById
         }
 
         [Fact]
-        public void zzzz()
+        public void WhenGetGenre_InvalidOperationException_ShouldNotBeReturnError()
         {
             Genre genre = new() { IsActive = true,Name="test deneme" };
             _context.Genres.Add(genre);

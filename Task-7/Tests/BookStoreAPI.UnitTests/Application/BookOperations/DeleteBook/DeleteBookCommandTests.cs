@@ -39,7 +39,7 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.DeleteBook
 
 
         [Fact]
-        public void WhenValidInputsAreGiven_Book_ShouldBeDeleted()
+        public void WhenValidInputsAreGiven_Book_ShouldBeDelete()
         {
             Book book = new() { Title = "Test deneme", GenreId = 1, AuthorId = 1, IsActive = true, PageCount = 100, PublishDate = DateTime.Now.AddMinutes(-50) };
             _context.Books.Add(book);

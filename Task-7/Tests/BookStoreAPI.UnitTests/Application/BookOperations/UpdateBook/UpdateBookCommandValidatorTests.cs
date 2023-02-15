@@ -22,7 +22,7 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.UpdateBook
         [InlineData("",1,0)]
         [InlineData("",1,1)]
         [InlineData("",0,1)]
-        public void xxx(string title,int bookId,int genreId)
+        public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturn(string title,int bookId,int genreId)
         {
             UpdateBookCommand updateBookCommand = new(null);
             updateBookCommand.BookId = bookId;
@@ -35,7 +35,7 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.UpdateBook
         }
 
         [Fact]
-        public void yyyy()
+        public void WhenValidInputsAreGiven_Validator_ShouldNotBeReturnError()
         {
             UpdateBookCommand updateBookCommand = new(null);
             updateBookCommand.BookId = 1;

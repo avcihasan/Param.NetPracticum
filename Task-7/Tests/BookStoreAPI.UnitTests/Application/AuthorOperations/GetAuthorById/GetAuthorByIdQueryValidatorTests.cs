@@ -21,7 +21,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.GetAuthorById
         [Theory]
         [InlineData(-10)]
         [InlineData(0)]
-        public void xxxx(int id)
+        public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturn(int id)
         {
             GetAuthorByIdQuery getAuthorByIdQuery = new(null, null);
             getAuthorByIdQuery.AuthorId = id;
@@ -35,7 +35,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.GetAuthorById
 
 
         [Fact]
-        public void zzzz()
+        public void WhenValidInputsAreGiven_Validator_ShouldNotBeReturnError()
         {
             GetAuthorByIdQuery getAuthorByIdQuery = new(null, null);
             getAuthorByIdQuery.AuthorId = 10;

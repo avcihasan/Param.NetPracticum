@@ -20,7 +20,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.UpdateAuthor
             _context = testFixture.Context;
         }
         [Fact]  
-        public void xxx()
+        public void WhenGivenAuthorIdIsNotinDB_InvalidOperationException_ShouldBeReturn()
         {
             UpdateAuthorCommand updateAuthorCommand = new(_context);
             updateAuthorCommand.AuthorId = 0;
@@ -29,7 +29,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.UpdateAuthor
         }
 
         [Fact]
-        public void yyy()
+        public void WhenGivenAuthorIdIsinDB_InvalidOperationException_ShouldNotBeReturnError()
         {
             Author author = new() { Name="Test deneme",Surname="Test deneme",Birthday=DateTime.Now.AddDays(-20)};
             _context.Authors.Add(author);

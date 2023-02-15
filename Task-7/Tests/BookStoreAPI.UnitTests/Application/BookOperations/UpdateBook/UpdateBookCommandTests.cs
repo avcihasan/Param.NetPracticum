@@ -27,7 +27,7 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.UpdateBook
 
 
         [Fact]
-        public void xxx()
+        public void WhenGivenBookIdIsNotinDB_InvalidOperationException_ShouldBeReturn()
         {
             UpdateBookCommand updateBookCommand = new(_context);
             updateBookCommand.BookId = 0;
@@ -42,7 +42,7 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.UpdateBook
         }
 
         [Fact]
-        public void yyyy()
+        public void WhenGivenBookIdIsinDB_InvalidOperationException_ShouldNotBeReturnError()
         {
             Book book=new Book() { Title="Test deneme",IsActive=true,PageCount=10, PublishDate=DateTime.Now.AddMinutes(-50),AuthorId=1,GenreId=1};
             _context.Books.Add(book);

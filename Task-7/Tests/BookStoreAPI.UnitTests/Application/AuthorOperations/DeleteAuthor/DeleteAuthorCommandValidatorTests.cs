@@ -18,7 +18,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.DeleteAuthor
         [Theory]
         [InlineData(0)]
         [InlineData(-1)]
-        public void xxx(int id)
+        public void WhenInvalidAuthorIdisGiven_Validator_ShouldBeReturnError(int id)
         {
             DeleteAuthorCommand deleteAuthorCommand = new(null);
             deleteAuthorCommand.AuthorId = id;
@@ -30,7 +30,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.DeleteAuthor
         }
 
         [Fact]
-        public void yyy()
+        public void WhenInvalidAuthorIdisGiven_Validator_ShouldNotBeReturnError()
         {
             DeleteBookCommand deleteBookCommand = new(null);
             deleteBookCommand.BookId = 1;

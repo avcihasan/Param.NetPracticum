@@ -24,7 +24,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.GetAuthorById
         }
 
         [Fact]
-        public void xx()
+        public void WhenGivenAuthorIdIsNotinDB_InvalidOperationException_ShouldBeReturn()
         {
             GetAuthorByIdQuery getAuthorByIdQuery = new(_context, _mapper);
             getAuthorByIdQuery.AuthorId = 0;
@@ -33,7 +33,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.GetAuthorById
         }
 
         [Fact]
-        public void zz()
+        public void WhenGivenAuthorIdIsinDB_InvalidOperationException_ShouldNotBeReturnError()
         {
             Author author = new() { Name = "deneme", Surname = "deneme", Birthday = DateTime.Now.AddDays(-50) };
             _context.Authors.Add(author);

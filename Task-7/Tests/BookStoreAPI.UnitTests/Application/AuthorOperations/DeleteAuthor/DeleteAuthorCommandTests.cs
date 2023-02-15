@@ -21,7 +21,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.DeleteAuthor
         }
 
         [Fact]
-        public void xxx()
+        public void WhenGivenAuthorIdIsNotinDB_InvalidOperationException_ShouldBeReturn()
         {
             DeleteAuthorCommand deleteAuthorCommand = new(_context);
             deleteAuthorCommand.AuthorId = 0;
@@ -30,7 +30,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.DeleteAuthor
         }
 
         [Fact]
-        public void yyy()
+        public void WhenGivenAuthorsBookIsActive_InvalidOperationException_ShouldNotDeleteAuthor()
         {
             Author author = new() { Name = "deneme", Surname = "deneme", Birthday = DateTime.Now.AddDays(-50) };
             _context.Authors.Add(author);
@@ -48,7 +48,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.DeleteAuthor
 
 
         [Fact]
-        public void zzzz()
+        public void WhenAuthorIdIsinDBAndBookIsNotActive_InvalidOperationException_ShouldNotBeReturn()
         {
             Author author = new() { Name = "deneme", Surname = "deneme", Birthday = DateTime.Now.AddDays(-50) };
             _context.Authors.Add(author);

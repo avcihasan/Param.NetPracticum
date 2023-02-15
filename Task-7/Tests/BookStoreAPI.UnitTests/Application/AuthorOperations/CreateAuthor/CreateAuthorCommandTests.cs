@@ -27,7 +27,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.CreateAuthor
 
 
         [Fact]
-        public void xxx()
+        public void WhenAlreadyExistAuthorNameSurnameIsGiven_InvalidOperationException_ShouldBeReturn()
         {
             Author author = new() { Name="deneme test",Surname= "deneme test" ,Birthday=DateTime.Now.AddDays(-10)};
             _context.Authors.Add(author);
@@ -48,7 +48,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.CreateAuthor
 
 
         [Fact]
-        public void yyy()
+        public void WhenValidInputsAreGiven_Author_ShouldBeCreated()
         {
 
 

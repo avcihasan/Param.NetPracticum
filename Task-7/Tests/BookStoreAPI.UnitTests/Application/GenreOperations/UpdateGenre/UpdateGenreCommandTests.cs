@@ -21,7 +21,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.UpdateGenre
         }
 
         [Fact]
-        public void xx()
+        public void WhenGivenGenreIdIsNotinDB_InvalidOperationException_ShouldBeReturn()
         {
             UpdateGenreCommand updateGenreCommand = new(_context);
             updateGenreCommand.GenreId = 0;
@@ -31,7 +31,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.UpdateGenre
 
 
         [Fact]
-        public void y()
+        public void WhenGivenGenreIdIsinDB_InvalidOperationException_ShouldNotBeReturnError()
         {
             Genre genre = new() { Name = "test deneme", IsActive = true };
             _context.Genres.Add(genre);

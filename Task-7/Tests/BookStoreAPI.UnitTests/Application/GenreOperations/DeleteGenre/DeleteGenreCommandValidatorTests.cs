@@ -17,7 +17,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.DeleteGenre
         [Theory]
         [InlineData(0)]
         [InlineData(-1)]
-        public void xxx(int id)
+        public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturn(int id)
         {
             DeleteGenreCommand deleteGenreCommand = new(null);
             deleteGenreCommand.GenreId = id;
@@ -29,7 +29,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.DeleteGenre
         }
 
         [Fact]
-        public void yyy()
+        public void WhenValidInputsAreGiven_Validator_ShouldNotBeReturnError()
         {
             DeleteGenreCommand deleteGenreCommand = new(null);
             deleteGenreCommand.GenreId = 1;

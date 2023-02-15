@@ -32,7 +32,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.UpdateAuthor
         [InlineData("","ddd", 5)]
         [InlineData("dddd","ddd",-1)]    
         [InlineData("dddd","ddd", 5)]
-        public void xx(string name,string surname, int authorId)
+        public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturnErrors(string name,string surname, int authorId)
         {
             UpdateAuthorCommand updateAuthorCommand = new(null);
             updateAuthorCommand.AuthorId = authorId;
@@ -44,7 +44,7 @@ namespace BookStoreAPI.UnitTests.Application.AuthorOperations.UpdateAuthor
             result.Errors.Count.Should().BeGreaterThan(0);
         }
         [Fact]
-        public void yy()
+        public void WhenValidInputsAreGiven_Validator_ShouldNotBeReturnErrors()
         {
             UpdateAuthorCommand updateAuthorCommand = new(null);
             updateAuthorCommand.AuthorId = 10;

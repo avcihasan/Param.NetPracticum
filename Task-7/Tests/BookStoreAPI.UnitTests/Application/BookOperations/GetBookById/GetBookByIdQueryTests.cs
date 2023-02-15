@@ -24,7 +24,7 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.GetBookById
         }
 
         [Fact]
-        public void xxx()
+        public void WhenAlreadyNotFoundBook_InvalidOperationException_ShouldBeReturn()
         {
             GetBookByIdQuery getBookByIdQuery = new(_context,_mapper);
             getBookByIdQuery.BookId = 0;
@@ -37,7 +37,7 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.GetBookById
         }
 
         [Fact]
-        public void yyy()
+        public void WhenAlreadyNotActiveBook_InvalidOperationException_ShouldNotBeReturn()
         {
             Book book = new() { Title = "deneme test", AuthorId = 1, GenreId = 1, IsActive = false, PageCount = 10, PublishDate = DateTime.Now.AddMinutes(-50) };
             _context.Books.Add(book);
@@ -54,7 +54,7 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.GetBookById
         }
 
         [Fact]
-        public void zzzz()
+        public void WhenGetBook_InvalidOperationException_ShouldNotBeReturnError()
         {
             Book book = new() { Title = "deneme test", AuthorId = 1, GenreId = 1, IsActive = true, PageCount = 10, PublishDate = DateTime.Now.AddMinutes(-50) };
             _context.Books.Add(book);

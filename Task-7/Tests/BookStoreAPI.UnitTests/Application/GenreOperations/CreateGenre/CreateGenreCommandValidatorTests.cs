@@ -18,7 +18,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.CreateGenre
         [InlineData("a")]
         [InlineData("aa")]
         [InlineData("aaa")]
-        public void xxx(string name)
+        public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturn(string name)
         {
             CreateGenreCommand createGenreCommand = new(null, null);
             createGenreCommand.Genre = new()
@@ -34,7 +34,7 @@ namespace BookStoreAPI.UnitTests.Application.GenreOperations.CreateGenre
 
 
         [Fact]   
-        public void yyy()
+        public void WhenValidInputsAreGiven_Validator_ShouldNotBeReturnError()
         {
             CreateGenreCommand createGenreCommand = new(null, null);
             createGenreCommand.Genre = new()
