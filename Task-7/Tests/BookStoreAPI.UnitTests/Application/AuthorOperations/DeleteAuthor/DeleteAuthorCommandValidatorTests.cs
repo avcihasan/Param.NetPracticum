@@ -1,6 +1,8 @@
-﻿using BookStoreAPI.API.Application.BookOperations.DeleteBook;
+﻿using BookStoreAPI.API.Application.AuthorOperations.DeleteAuthor;
+using BookStoreAPI.API.Application.BookOperations.DeleteBook;
 using BookStoreAPI.UnitTests.TestSetup;
 using FluentAssertions;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace BookStoreAPI.UnitTests.Application.BookOperations.DeleteBook
+namespace BookStoreAPI.UnitTests.Application.AuthorOperations.DeleteAuthor
 {
-    public class DeleteBookCommandValidatorTests : IClassFixture<CommonTestFixture>
+    public class DeleteAuthorCommandValidatorTests:IClassFixture<CommonTestFixture>
     {
 
         [Theory]
@@ -18,11 +20,11 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.DeleteBook
         [InlineData(-1)]
         public void xxx(int id)
         {
-            DeleteBookCommand deleteBookCommand = new(null);
-            deleteBookCommand.BookId = id;
+            DeleteAuthorCommand deleteAuthorCommand = new(null);
+            deleteAuthorCommand.AuthorId = id;
 
-            DeleteBookCommandValidator validator = new();
-            var result = validator.Validate(deleteBookCommand);
+            DeleteAuthorCommandValidator validator = new();
+            var result = validator.Validate(deleteAuthorCommand);
 
             result.Errors.Count.Should().BeGreaterThan(0);
         }

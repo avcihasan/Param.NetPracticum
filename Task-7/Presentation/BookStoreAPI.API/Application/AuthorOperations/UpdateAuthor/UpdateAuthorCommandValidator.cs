@@ -12,6 +12,8 @@ namespace BookStoreAPI.API.Application.AuthorOperations.UpdateAuthor
             RuleFor(x => x.Author.Surname).MinimumLength(4)
             .When(x => x.Author.Surname != string.Empty);
 
+            RuleFor(x => x.AuthorId).GreaterThan(0);
+
         }
     }
 }

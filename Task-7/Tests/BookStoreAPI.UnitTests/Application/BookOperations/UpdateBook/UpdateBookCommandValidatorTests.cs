@@ -2,6 +2,7 @@
 using BookStoreAPI.API.Application.BookOperations.UpdateBook;
 using BookStoreAPI.UnitTests.TestSetup;
 using FluentAssertions;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.UpdateBook
         {
             UpdateBookCommand updateBookCommand = new(null);
             updateBookCommand.BookId = 1;
-            updateBookCommand.Model = new() { GenreId = 1, Title = "safa" };
+            updateBookCommand.Model = new() { GenreId = 1, Title = "denemee" };
 
             UpdateBookCommandValidator validator = new();
             var result = validator.Validate(updateBookCommand);

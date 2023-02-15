@@ -28,12 +28,12 @@ namespace BookStoreAPI.UnitTests.Application.BookOperations.CreateBook
         [Fact]
         public void WhenAlreadyExistBookTitleIsGiven_InvalidOperationException_ShouldBeReturn()
         {
-            Book book = new() { Title = "deneme" };
+            Book book = new() { Title = "Deneme Test", AuthorId = 1, GenreId = 1, IsActive = true,PageCount=10,PublishDate=DateTime.Now.AddDays(-50) };
             _context.Books.Add(book);
             _context.SaveChanges();
 
             CreateBookCommand createBookCommand = new(_context,_mapper);
-            createBookCommand.Model = new() { Title = book.Title };
+            createBookCommand.Model = new() { Title = book.Title, GenreId=book.GenreId,PageCount=book.PageCount,PublishDate=book.PublishDate,AuthorId=book.AuthorId};
 
 
             FluentActions.Invoking(() => createBookCommand.Handle())

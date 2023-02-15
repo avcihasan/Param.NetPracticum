@@ -8,6 +8,7 @@ using BookStoreAPI.API.Common;
 using BookStoreAPI.API.Entities;
 using static BookStoreAPI.API.Application.BookOperations.CreateBook.CreateBookCommand;
 using static BookStoreAPI.API.Application.BookOperations.GetBookById.GetBookByIdQuery;
+using static BookStoreAPI.API.Application.GenreOperations.CreateGenre.CreateGenreCommand;
 using static BookStoreAPI.API.Application.GenreOperations.GetGenreById.GetGenreByIdQuery;
 
 namespace BookStoreAPI.API.Mapping
@@ -27,6 +28,7 @@ namespace BookStoreAPI.API.Mapping
 
             CreateMap<Genre, GenreViewIdModel>();
             CreateMap<Genre, GenreViewModel>();
+            CreateMap<CreateGenreModel, Genre>();
 
         }
     }
