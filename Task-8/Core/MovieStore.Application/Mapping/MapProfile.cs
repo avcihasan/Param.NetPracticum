@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MovieStore.Application.DTOs.ActorDTOs;
 using MovieStore.Application.DTOs.CustomerDTOs;
+using MovieStore.Application.DTOs.DirectorDTOs;
 using MovieStore.Application.DTOs.MovieDTOs;
 using MovieStore.Domain.Entities;
 using System;
@@ -25,6 +26,10 @@ namespace MovieStore.Application.Mapping
             CreateMap<CreateActorDto, Actor>();
             CreateMap<Actor, GetActorDto>();
             CreateMap<UpdateActorDto, Actor>();
+
+            CreateMap<CreateDirectorDto, Director>();
+            CreateMap<Director, GetDirectorDto>();
+            CreateMap<UpdateDirectorDto, Director>();
         }
     }
 }
