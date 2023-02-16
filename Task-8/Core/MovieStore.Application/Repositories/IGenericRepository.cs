@@ -1,4 +1,4 @@
-﻿using BookStoreAPI.Domain.Entities;
+﻿using MovieStore.Domain.Entities;
 
 namespace BookStoreAPI.Application.Repositories
 {
@@ -10,7 +10,5 @@ namespace BookStoreAPI.Application.Repositories
         IQueryable<T> GetAll();
         Task<T> GetByIdAsync(int id);
         Task SaveAsync();
-        IQueryable<T> GetAllByPropertyNameToAscending(string propertyName);
-        IQueryable<T> GetAllByPropertyNameToDescending(string propertyName);
     }
 }
