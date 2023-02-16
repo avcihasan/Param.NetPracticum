@@ -20,6 +20,7 @@ namespace BookStoreAPI.Persistence
             service.AddScoped(typeof(IService<>), typeof(Service<>));
 
             service.AddScoped<IMovieService, MovieService>();
+            service.AddScoped<ICustomerService, CustomerService>();
 
         }
     }
