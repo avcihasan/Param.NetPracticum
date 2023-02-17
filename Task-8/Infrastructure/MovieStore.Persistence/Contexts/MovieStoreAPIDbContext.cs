@@ -1,16 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MovieStore.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MovieStore.Persistence.Contexts
 {
-    public class MovieStoreAPIDbContext:DbContext
+    public class MovieStoreAPIDbContext:IdentityDbContext<BaseUser, BaseRole,int>
     {
-        public MovieStoreAPIDbContext(DbContextOptions<MovieStoreAPIDbContext> options) : base(options)
+        public MovieStoreAPIDbContext(DbContextOptions options) : base(options)
         {}
 
         public DbSet<Movie> Movies { get; set; }
@@ -18,5 +15,26 @@ namespace MovieStore.Persistence.Contexts
         public DbSet<Director> Directors { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Order> Orders { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<MovieActor>()
+                .HasKey(key => new { key.MovieId, key.ActorId });
+
+            modelBuilder.Entity<Movie>()
+                 .HasMany(p => p.Actors)
+                 .WithOne(p => p.Movie)
+                 .HasForeignKey(p => p.MovieId).OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Actor>()
+                .HasMany(c => c.Movies)
+                .WithOne(c => c.Actor)
+                .HasForeignKey(c => c.ActorId).OnDelete(DeleteBehavior.Cascade);
+
+            base.OnModelCreating(modelBuilder);
+
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace BookStoreAPI.Persistence.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected readonly MovieStoreAPIDbContext _context;
         protected readonly DbSet<T> _dbSet;

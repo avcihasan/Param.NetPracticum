@@ -18,7 +18,7 @@ namespace MovieStore.API.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreateCustomer([FromBody] CreateCustomerDto createCustomerDto)
-            =>Ok(await _service.CreateMovieAsync(createCustomerDto));
+            =>Ok(await _service.CreateCustomerAsync(createCustomerDto));
 
         [HttpDelete("{customerId}")]
         public async Task<IActionResult> DeleteCustomer(int customerId)
@@ -26,5 +26,13 @@ namespace MovieStore.API.Controllers
             await _service.RemoveAsync(customerId);
             return Ok();
         }
+        [HttpPost]
+        public async Task<IActionResult> LoginCustomer([FromBody] LoginCustomerDto loginCustomerDto )
+        {
+            await _service.LoginCustomerAsync(loginCustomerDto);
+            return Ok();
+        }
+
+
     }
 }

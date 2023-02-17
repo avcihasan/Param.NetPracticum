@@ -2,6 +2,7 @@
 using MovieStore.Application.DTOs.ActorDTOs;
 using MovieStore.Application.DTOs.CustomerDTOs;
 using MovieStore.Application.DTOs.DirectorDTOs;
+using MovieStore.Application.DTOs.GenreDTOs;
 using MovieStore.Application.DTOs.MovieDTOs;
 using MovieStore.Domain.Entities;
 using System;
@@ -30,6 +31,9 @@ namespace MovieStore.Application.Mapping
             CreateMap<CreateDirectorDto, Director>();
             CreateMap<Director, GetDirectorDto>();
             CreateMap<UpdateDirectorDto, Director>();
+
+
+            CreateMap<Genre, GetGenreDto>();
         }
     }
 }

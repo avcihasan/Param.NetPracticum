@@ -18,7 +18,7 @@ namespace MovieStore.Domain.Entities
         public int DirectorId { get; set; }
         public Director Director { get; set; }
 
-        public ICollection<Actor> Actors { get; set; }
+        public ICollection<MovieActor> Actors { get; set; }
 
     }
 }
