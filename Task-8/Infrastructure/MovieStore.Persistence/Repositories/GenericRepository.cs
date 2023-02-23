@@ -1,11 +1,11 @@
-﻿using BookStoreAPI.Application.Repositories;
+﻿using MovieStore.Application.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using MovieStore.Domain.Entities;
 using MovieStore.Persistence.Contexts;
 using System.Globalization;
 
-namespace BookStoreAPI.Persistence.Repositories
+namespace MovieStore.Persistence.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

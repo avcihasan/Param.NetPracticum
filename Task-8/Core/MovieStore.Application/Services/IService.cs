@@ -1,7 +1,7 @@
 ﻿
 using MovieStore.Domain.Entities;
 
-namespace BookStoreAPI.Application.Services
+namespace MovieStore.Application.Services
 {
     public interface IService<T>  where T : class
     {

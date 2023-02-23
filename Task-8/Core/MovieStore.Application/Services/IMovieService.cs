@@ -1,4 +1,4 @@
-﻿using BookStoreAPI.Application.Services;
+﻿using MovieStore.Application.Services;
 using MovieStore.Application.DTOs.MovieDTOs;
 using MovieStore.Domain.Entities;
 using System;
@@ -14,5 +14,6 @@ namespace MovieStore.Application.Services
         Task<GetMovieDto> CreateMovieAsync(CreateMovieDto createMovieDto);
         Task<GetMovieDto> UpdateMovieAsync(int movieId,UpdateMovieDto updateMovieDto);
         Task<List<GetMovieDto>> GetAllMoviesAsync();
+        Task BuyMovieAsync(int moiveId,string userName);
     }
 }

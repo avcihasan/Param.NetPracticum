@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace MovieStore.Domain.Entities
 {
-    public class BaseUser:IdentityUser<int>
+    public class BaseUser: IdentityUser<int>
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+     
+      
     }
 }

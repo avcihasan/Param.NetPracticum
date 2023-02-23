@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MovieStore.Application.Mapping;
 using MovieStore.Application.Validators.ActorValidators;
 
-namespace BookStoreAPI.Application
+namespace MovieStore.Application
 {
     public static class ServiceRegistration
     {//ioc containera eklenecekler burada extension metot ile tanımlanıp program.cs de çağırılıyor

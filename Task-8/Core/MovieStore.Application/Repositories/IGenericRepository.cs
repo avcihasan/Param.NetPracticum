@@ -1,6 +1,6 @@
 ﻿using MovieStore.Domain.Entities;
 
-namespace BookStoreAPI.Application.Repositories
+namespace MovieStore.Application.Repositories
 {
     public interface IGenericRepository<T> where T : class
     {

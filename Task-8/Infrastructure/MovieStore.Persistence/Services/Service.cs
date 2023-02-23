@@ -1,5 +1,5 @@
-﻿using BookStoreAPI.Application.Repositories;
-using BookStoreAPI.Application.Services;
+﻿using MovieStore.Application.Repositories;
+using MovieStore.Application.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
@@ -8,7 +8,7 @@ using MovieStore.Persistence.Extensions;
 using MovieStore.Persistence.Services;
 using System.Net;
 
-namespace BookStoreAPI.Persistence.Services
+namespace MovieStore.Persistence.Services
 {
     public class Service<T> : IService<T> where T : class
     {

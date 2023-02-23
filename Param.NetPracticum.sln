@@ -69,15 +69,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{E078981C-3B2B-4E32-B8F0-3EFF513B4DAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Application", "Task-8\Core\MovieStore.Application\MovieStore.Application.csproj", "{6A22FF3C-34C5-41BE-9528-29D58CA282B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Application", "Task-8\Core\MovieStore.Application\MovieStore.Application.csproj", "{6A22FF3C-34C5-41BE-9528-29D58CA282B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Domain", "Task-8\Core\MovieStore.Domain\MovieStore.Domain.csproj", "{A5110675-BAD0-4D31-87D5-22A5929659DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Domain", "Task-8\Core\MovieStore.Domain\MovieStore.Domain.csproj", "{A5110675-BAD0-4D31-87D5-22A5929659DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Infrastructure", "Task-8\Infrastructure\MovieStore.Infrastructure\MovieStore.Infrastructure.csproj", "{F7E14CA1-E732-4A45-8336-3F608EDDE8F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Infrastructure", "Task-8\Infrastructure\MovieStore.Infrastructure\MovieStore.Infrastructure.csproj", "{F7E14CA1-E732-4A45-8336-3F608EDDE8F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Persistence", "Task-8\Infrastructure\MovieStore.Persistence\MovieStore.Persistence.csproj", "{03373478-0DAF-4110-91CA-C51671EBDDA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Persistence", "Task-8\Infrastructure\MovieStore.Persistence\MovieStore.Persistence.csproj", "{03373478-0DAF-4110-91CA-C51671EBDDA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.API", "Task-8\Presentation\MovieStore.API\MovieStore.API.csproj", "{6F2D9755-D2F9-4E22-8141-E55D58F445A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.API", "Task-8\Presentation\MovieStore.API\MovieStore.API.csproj", "{6F2D9755-D2F9-4E22-8141-E55D58F445A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{03B4F2F5-26C4-43DF-B1A7-0CAE370C42D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.UnitTests", "Task-8\Tests\MovieStore.UnitTests\MovieStore.UnitTests.csproj", "{8E68C412-71FC-4D83-B0FB-5D818B61691E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +169,10 @@ Global
 		{6F2D9755-D2F9-4E22-8141-E55D58F445A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F2D9755-D2F9-4E22-8141-E55D58F445A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F2D9755-D2F9-4E22-8141-E55D58F445A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E68C412-71FC-4D83-B0FB-5D818B61691E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E68C412-71FC-4D83-B0FB-5D818B61691E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E68C412-71FC-4D83-B0FB-5D818B61691E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E68C412-71FC-4D83-B0FB-5D818B61691E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -201,6 +209,8 @@ Global
 		{F7E14CA1-E732-4A45-8336-3F608EDDE8F6} = {C0C06C40-FEF0-4555-851E-7381E3DC536E}
 		{03373478-0DAF-4110-91CA-C51671EBDDA6} = {C0C06C40-FEF0-4555-851E-7381E3DC536E}
 		{6F2D9755-D2F9-4E22-8141-E55D58F445A2} = {E078981C-3B2B-4E32-B8F0-3EFF513B4DAB}
+		{03B4F2F5-26C4-43DF-B1A7-0CAE370C42D2} = {5CDED7D3-A80E-4C2C-A471-2159014DE8D4}
+		{8E68C412-71FC-4D83-B0FB-5D818B61691E} = {03B4F2F5-26C4-43DF-B1A7-0CAE370C42D2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D0966415-A6E9-4DCD-ADE2-FD4F828C474F}

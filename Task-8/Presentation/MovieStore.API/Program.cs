@@ -1,16 +1,14 @@
-using BookStoreAPI.Application;
-using BookStoreAPI.Persistence;
-using BookStoreAPI.Persistence.Services;
+using MovieStore.Application;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpLogging;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using MovieStore.API.Extensions;
-using MovieStore.Domain.Entities;
+using MovieStore.Infrastructure;
+using MovieStore.Persistence;
 using MovieStore.Persistence.Contexts;
 using Serilog;
 using Serilog.Core;
-using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,30 +19,36 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<MovieStoreAPIDbContext>(x =>
-    x.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"), option =>
-    {
-        option.MigrationsAssembly(Assembly.GetAssembly(typeof(MovieStoreAPIDbContext)).GetName().Name);
-    })
-);
 
-builder.Services.AddIdentity<BaseUser, BaseRole>(options =>
-{
-    options.Password.RequiredLength = 3;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireDigit = false;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireUppercase = false;
-}).AddEntityFrameworkStores<MovieStoreAPIDbContext>()
-            .AddDefaultTokenProviders();
+
+
 
 
 builder.Services.AddPersistenceServices();
 builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices();
+
+
+
 Logger log = new LoggerConfiguration()
     .WriteTo.Console()
     .MinimumLevel.Information()
     .CreateLogger();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer("Admin", options =>
+    {
+        options.TokenValidationParameters = new()
+        {
+            ValidateAudience = true,
+            ValidateIssuer = true,
+            ValidateLifetime = true, 
+            ValidateIssuerSigningKey = true,
+            ValidAudience = builder.Configuration["Token:Audience"],
+            ValidIssuer = builder.Configuration["Token:Issuer"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SigninKey"])),
+        };
+    });
+
 
 builder.Host.UseSerilog(log);
 
@@ -73,6 +77,8 @@ if (app.Environment.IsDevelopment())
 }
 app.ConfigureExceptionHandler<Program>(app.Services.GetRequiredService<ILogger<Program>>());
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

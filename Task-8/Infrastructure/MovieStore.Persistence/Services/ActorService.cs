@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using BookStoreAPI.Application.Repositories;
-using BookStoreAPI.Persistence.Services;
+using MovieStore.Application.Repositories;
+using MovieStore.Persistence.Services;
 using Microsoft.Extensions.Logging;
 using MovieStore.Application.DTOs.ActorDTOs;
 using MovieStore.Application.Services;

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MovieStore.Application.DTOs.MovieDTOs;
 using MovieStore.Application.Services;
@@ -17,7 +18,7 @@ namespace MovieStore.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateMovie([FromBody]CreateMovieDto createMovieDto)
+        public async Task<IActionResult> CreateMovie([FromBody] CreateMovieDto createMovieDto)
         {
             return Ok(await _service.CreateMovieAsync(createMovieDto));
         }
@@ -28,14 +29,22 @@ namespace MovieStore.API.Controllers
             return Ok();
         }
         [HttpPut("{movieId}")]
-        public async Task<IActionResult> UpdateMovie([FromRoute]int movieId,[FromBody]UpdateMovieDto updateMovieDto)
+        public async Task<IActionResult> UpdateMovie([FromRoute] int movieId, [FromBody] UpdateMovieDto updateMovieDto)
         {
             return Ok(await _service.UpdateMovieAsync(movieId, updateMovieDto));
         }
         [HttpGet]
         public async Task<IActionResult> GetAllMoives()
-        {  
+        {
             return Ok(await _service.GetAllMoviesAsync());
+        }
+
+        [Authorize]
+        [HttpPost("[action]/{movieId}")]
+        public async Task<IActionResult> BuyMovie([FromRoute] int movieId, [FromBody] string userName)
+        {
+            await _service.BuyMovieAsync(movieId, userName);
+            return Ok();
         }
     }
 }

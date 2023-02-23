@@ -8,5 +8,7 @@ namespace MovieStore.Application.DTOs.CustomerDTOs
 {
     public class CreateCustomerDto:BaseUserDto
     {
+        
+      
     }
 }

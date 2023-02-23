@@ -1,4 +1,4 @@
-﻿using BookStoreAPI.Application.Services;
+﻿using MovieStore.Application.Services;
 using MovieStore.Application.DTOs.ActorDTOs;
 using MovieStore.Application.DTOs.DirectorDTOs;
 using MovieStore.Domain.Entities;

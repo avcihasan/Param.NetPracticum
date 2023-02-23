@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieStore.Application.Repositories
 {
-    public interface IMovieRepository:IGenericRepository<Movie>
+    public interface IOrderRepository:IGenericRepository<Order>
     {
-        IQueryable<Movie> GetAllMoviesWithAllProperties();
-
-        
     }
 }

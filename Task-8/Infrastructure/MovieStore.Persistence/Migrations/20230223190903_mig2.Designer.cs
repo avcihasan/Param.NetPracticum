@@ -12,8 +12,8 @@ using MovieStore.Persistence.Contexts;
 namespace MovieStore.Persistence.Migrations
 {
     [DbContext(typeof(MovieStoreAPIDbContext))]
-    [Migration("20230217013304_mig1")]
-    partial class mig1
+    [Migration("20230223190903_mig2")]
+    partial class mig2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -337,6 +337,9 @@ namespace MovieStore.Persistence.Migrations
                     b.Property<DateTime>("DateOfPurchase")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("MovieName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
@@ -462,13 +465,11 @@ namespace MovieStore.Persistence.Migrations
                     b.HasOne("MovieStore.Domain.Entities.Actor", "Actor")
                         .WithMany("Movies")
                         .HasForeignKey("ActorId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MovieStore.Domain.Entities.Movie", "Movie")
                         .WithMany("Actors")
                         .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Actor");

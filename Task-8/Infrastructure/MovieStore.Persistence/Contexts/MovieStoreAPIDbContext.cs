@@ -5,7 +5,7 @@ using MovieStore.Domain.Entities;
 
 namespace MovieStore.Persistence.Contexts
 {
-    public class MovieStoreAPIDbContext:IdentityDbContext<BaseUser, BaseRole,int>
+    public class MovieStoreAPIDbContext:IdentityDbContext<BaseUser, BaseRole, int>
     {
         public MovieStoreAPIDbContext(DbContextOptions options) : base(options)
         {}
@@ -26,12 +26,12 @@ namespace MovieStore.Persistence.Contexts
             modelBuilder.Entity<Movie>()
                  .HasMany(p => p.Actors)
                  .WithOne(p => p.Movie)
-                 .HasForeignKey(p => p.MovieId).OnDelete(DeleteBehavior.Cascade);
+                 .HasForeignKey(p => p.MovieId).OnDelete(DeleteBehavior.ClientSetNull); 
 
             modelBuilder.Entity<Actor>()
                 .HasMany(c => c.Movies)
                 .WithOne(c => c.Actor)
-                .HasForeignKey(c => c.ActorId).OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey(c => c.ActorId).OnDelete(DeleteBehavior.ClientSetNull);
 
             base.OnModelCreating(modelBuilder);
 

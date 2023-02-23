@@ -334,6 +334,9 @@ namespace MovieStore.Persistence.Migrations
                     b.Property<DateTime>("DateOfPurchase")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("MovieName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
@@ -459,13 +462,11 @@ namespace MovieStore.Persistence.Migrations
                     b.HasOne("MovieStore.Domain.Entities.Actor", "Actor")
                         .WithMany("Movies")
                         .HasForeignKey("ActorId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MovieStore.Domain.Entities.Movie", "Movie")
                         .WithMany("Actors")
                         .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Actor");

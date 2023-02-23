@@ -1,10 +1,5 @@
-﻿using MovieStore.Application.DTOs.MovieDTOs;
-using MovieStore.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MovieStore.Application.DTOs.GenreDTOs;
+using MovieStore.Application.DTOs.MovieDTOs;
 
 namespace MovieStore.Application.DTOs.CustomerDTOs
 {
@@ -12,6 +7,6 @@ namespace MovieStore.Application.DTOs.CustomerDTOs
     {
         public int Id{ get; set; }
         public ICollection<GetMovieDto>Movies { get; set; }
-        //public ICollection<Genre> LikedGenres { get; set; }
+        public ICollection<GetGenreDto> LikedGenres { get; set; }
     }
 }
