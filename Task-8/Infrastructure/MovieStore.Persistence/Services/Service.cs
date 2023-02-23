@@ -26,7 +26,7 @@ namespace MovieStore.Persistence.Services
             LoggerExtensions<Service<T>>.MethodTriggered(_logger, "AddAsync");
             bool result = await _repository.AddAsync(entity);
             if (!result)
-                throw new Exception($"{typeof(T).Name} Ekleme Hatası!");
+                throw new InvalidOperationException($"{typeof(T).Name} Ekleme Hatası!");
             await _repository.SaveAsync();
             return entity;
         }
@@ -43,7 +43,7 @@ namespace MovieStore.Persistence.Services
             LoggerExtensions<Service<T>>.MethodTriggered(_logger, "GetByIdAsync");
             T entity = await _repository.GetByIdAsync(id);
             if (entity == null)
-                throw new Exception($"{typeof(T).Name} veritabanında kayıtlı değil!");
+                throw new InvalidOperationException($"{typeof(T).Name} veritabanında kayıtlı değil!");
             return entity;
         }
 
@@ -54,7 +54,7 @@ namespace MovieStore.Persistence.Services
 
             bool result = _repository.Remove(entity);
             if (!result)
-                throw new Exception($"{typeof(T).Name} Silme Hatası!");
+                throw new InvalidOperationException($"{typeof(T).Name} Silme Hatası!");
             await _repository.SaveAsync();
         }
 
@@ -63,7 +63,7 @@ namespace MovieStore.Persistence.Services
             LoggerExtensions<Service<T>>.MethodTriggered(_logger, "UpdateAsync");
             bool result = _repository.Update(entity);
             if (!result)
-                throw new Exception($"{typeof(T).Name} Güncelleme Hatası!");
+                throw new InvalidOperationException($"{typeof(T).Name} Güncelleme Hatası!");
             await _repository.SaveAsync();
             return entity;
         }

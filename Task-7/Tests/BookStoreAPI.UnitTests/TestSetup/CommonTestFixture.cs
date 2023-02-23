@@ -14,6 +14,7 @@ namespace BookStoreAPI.UnitTests.TestSetup
     {
         public BookStoreAPIDbContext Context { get; set; }
         public IMapper Mapper { get; set; }
+   
 
         public CommonTestFixture()
         {

@@ -9,7 +9,7 @@ using MovieStore.Persistence.Extensions;
 
 namespace MovieStore.Persistence.Services
 {
-    internal class ActorService : Service<Actor>, IActorService
+    public class ActorService : Service<Actor>, IActorService
     {
         private readonly IMapper _mapper;
         private readonly ILogger<ActorService> _logger;
@@ -36,7 +36,11 @@ namespace MovieStore.Persistence.Services
         public async Task<GetActorDto> UpdateActorAsync(int actorId, UpdateActorDto updateActorDto)
         {
             LoggerExtensions<ActorService>.MethodTriggered(_logger, "UpdateActorAsync");
-            Actor actor = _mapper.Map<Actor>(updateActorDto);
+            Actor actor = await GetByIdAsync(actorId);
+            if (actor == null)
+                throw new InvalidOperationException("Actor Kayıtlı Değil!");
+           
+            actor = _mapper.Map<Actor>(updateActorDto);
             actor.Id = actorId;
             return _mapper.Map<GetActorDto>(await UpdateAsync(actor));
         }

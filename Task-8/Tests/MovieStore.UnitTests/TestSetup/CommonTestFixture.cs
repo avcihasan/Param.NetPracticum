@@ -1,19 +1,27 @@
 ﻿using AutoMapper;
+using Castle.Core.Logging;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MovieStore.Application.Mapping;
+using MovieStore.Application.Repositories;
+using MovieStore.Application.Services;
+using MovieStore.Domain.Entities;
 using MovieStore.Persistence.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MovieStore.Persistence.Repositories;
+using MovieStore.Persistence.Services;
 
 namespace MovieStore.UnitTests.TestSetup
 {
     public class CommonTestFixture
     {
         public MovieStoreAPIDbContext Context { get; set; }
+        public IActorService ActorService{ get; set; }
+        public IGenericRepository<Actor> ActorRepository { get; set; }
+
         public IMapper Mapper { get; set; }
+
 
         public CommonTestFixture()
         {
@@ -29,7 +37,14 @@ namespace MovieStore.UnitTests.TestSetup
            
             Context.SaveChanges();
 
+            using var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+
+            
+     
             Mapper = new MapperConfiguration(cfg => { cfg.AddProfile<MapProfile>(); }).CreateMapper();
+            ActorRepository = new GenericRepository<Actor>(Context);
+            ActorService = new ActorService(ActorRepository,Mapper, loggerFactory.CreateLogger<ActorService>());
+            
         }
     }
 }
